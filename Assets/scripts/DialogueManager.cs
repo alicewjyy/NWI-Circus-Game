@@ -22,6 +22,8 @@ public class DialogueManager : MonoBehaviour
     public TMP_Text nameText;
     public TMP_Text dialogueText;
 
+    public bool autoStartDialogue = true;
+
     [Header("Dialogue")]
     public DialogueLine[] dialogueLines;
 
@@ -31,10 +33,18 @@ public class DialogueManager : MonoBehaviour
     private bool isTyping = false;
     private Coroutine typingCoroutine;
 
-    void Start()
+  void Start()
+    {
+    if (autoStartDialogue)
     {
         dialoguePanel.SetActive(true);
+        currentIndex = 0;
         ShowLine();
+    }
+    else
+    {
+        dialoguePanel.SetActive(false);
+    }
     }
 
     void Update()
@@ -50,6 +60,16 @@ public class DialogueManager : MonoBehaviour
                 NextLine();
             }
         }
+    }
+
+    public void StartDialogue(DialogueLine[] newDialogue)
+    {
+    dialogueLines = newDialogue;
+    currentIndex = 0;
+
+    dialoguePanel.SetActive(true);
+
+    ShowLine();
     }
 
     void ShowLine()
@@ -96,7 +116,7 @@ public class DialogueManager : MonoBehaviour
         if(currentIndex >= dialogueLines.Length)
         {
             dialoguePanel.SetActive(false);
-            enabled = false;
+            currentIndex = 0;
             return;
         }
 
