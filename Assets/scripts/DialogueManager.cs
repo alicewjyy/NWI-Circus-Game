@@ -47,20 +47,30 @@ public class DialogueManager : MonoBehaviour
     }
     }
 
-    void Update()
+    //void Update()
+    //{
+        //if (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0))
+        //{
+          //  if (isTyping)
+          //  {
+         //       FinishTyping();
+         //   }
+         //   else
+            //{
+          //      NextLine();
+            //}
+        //}
+        void Update()
+{
+    if (Input.GetKeyDown(KeyCode.Space))
     {
-        if (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0))
-        {
-            if (isTyping)
-            {
-                FinishTyping();
-            }
-            else
-            {
-                NextLine();
-            }
-        }
+        if (isTyping)
+            FinishTyping();
+        else
+            NextLine();
     }
+}
+   // }
 
     public void StartDialogue(DialogueLine[] newDialogue)
     {

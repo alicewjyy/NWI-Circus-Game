@@ -1,5 +1,5 @@
 using UnityEngine;
-using UnityEngine.UI;
+using TMPro;
 
 public class NPC : MonoBehaviour
 {
@@ -7,41 +7,39 @@ public class NPC : MonoBehaviour
 
     public DialogueManager.DialogueLine[] dialogue;
 
-    public Button talkButton;
+    public GameObject talkPrompt;
 
     private bool playerNearby = false;
 
     void Start()
     {
-        talkButton.gameObject.SetActive(false);
+        talkPrompt.SetActive(false);
+    }
 
-        talkButton.onClick.AddListener(StartConversation);
+    void Update()
+    {
+        if (playerNearby && Input.GetKeyDown(KeyCode.F))
+        {
+            talkPrompt.SetActive(false);
+            dialogueManager.StartDialogue(dialogue);
+        }
     }
 
     void OnTriggerEnter(Collider other)
     {
-        if(other.CompareTag("Player"))
+        if (other.CompareTag("Player"))
         {
             playerNearby = true;
-            talkButton.gameObject.SetActive(true);
+            talkPrompt.SetActive(true);
         }
     }
 
     void OnTriggerExit(Collider other)
     {
-        if(other.CompareTag("Player"))
+        if (other.CompareTag("Player"))
         {
             playerNearby = false;
-            talkButton.gameObject.SetActive(false);
-        }
-    }
-
-    void StartConversation()
-    {
-        if(playerNearby)
-        {
-            talkButton.gameObject.SetActive(false);
-            dialogueManager.StartDialogue(dialogue);
+            talkPrompt.SetActive(false);
         }
     }
 }
