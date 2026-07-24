@@ -72,9 +72,6 @@ public class Interactor : MonoBehaviour
 
     void Update()
     {
-        // Auto‑repair reference if Unity loses it
-        if (inspectManager == null)
-            inspectManager = UnityEngine.Object.FindFirstObjectByType<InspectManager>();
 
         if (inspectManager == null)
             return;
