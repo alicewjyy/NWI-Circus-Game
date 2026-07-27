@@ -917,7 +917,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a79441f348de89743a2939f4d699eac1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Unity.RenderPipelines.Universal.Runtime::UnityEngine.Rendering.Universal.UniversalAdditionalCameraData
-  m_RenderShadows: 1
+  m_RenderShadows: 0
   m_RequiresDepthTextureOption: 2
   m_RequiresOpaqueTextureOption: 2
   m_CameraType: 0
@@ -1850,8 +1850,8 @@ Transform:
   m_GameObject: {fileID: 583982402}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0.53611696, z: -0, w: 0.84414375}
-  m_LocalPosition: {x: 172.19424, y: 11.9, z: 10.381537}
-  m_LocalScale: {x: 7, y: 9, z: 7}
+  m_LocalPosition: {x: 172.19424, y: 14.2, z: 10.381537}
+  m_LocalScale: {x: 7, y: 12.7, z: 7}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 358037470}
@@ -2031,7 +2031,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 04b9c0072980dce4a8e68e2a06a9b49a, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.14000034
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 04b9c0072980dce4a8e68e2a06a9b49a, type: 3}
       propertyPath: m_LocalPosition.z
@@ -3444,8 +3444,8 @@ MonoBehaviour:
   move: {fileID: 583982410}
   moveSpeed: 10
   rotateSpeed: 5
-  zoomSpeed: 0.5
-  minZoom: 0.2
+  zoomSpeed: 1
+  minZoom: -4
   maxZoom: 2
   defaultZoom: 1.7
 --- !u!1 &1649376815 stripped
@@ -3746,19 +3746,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 3dae7fcf926271447bd8daeb5c1b593e, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.7071068
+      value: 0.7070799
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 3dae7fcf926271447bd8daeb5c1b593e, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.7071068
+      value: 0.7070799
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 3dae7fcf926271447bd8daeb5c1b593e, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: 0.006170608
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 3dae7fcf926271447bd8daeb5c1b593e, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: -0.006170608
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 3dae7fcf926271447bd8daeb5c1b593e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -3766,7 +3766,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 3dae7fcf926271447bd8daeb5c1b593e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 3dae7fcf926271447bd8daeb5c1b593e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
