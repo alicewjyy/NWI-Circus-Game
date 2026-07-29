@@ -5,7 +5,11 @@ public class Movement : MonoBehaviour
     public float speed = 6f;
     public float gravity = -9.81f;
     public float jumpHeight = 1.5f;
-    public bool isInspecting = false; // flag to pause movement
+
+    public bool isInspecting = false;
+
+  
+    public DialogueManager dialogueManager;
 
     private CharacterController controller;
     private Vector3 velocity;
@@ -17,8 +21,9 @@ public class Movement : MonoBehaviour
 
     void Update()
     {
-
-        if (isInspecting) return; // stop movement during inspect
+       
+        if (isInspecting || (dialogueManager != null && dialogueManager.IsDialogueActive))
+            return;
 
         float x = Input.GetAxis("Horizontal");
         float z = Input.GetAxis("Vertical");
@@ -33,7 +38,9 @@ public class Movement : MonoBehaviour
         controller.Move(velocity * Time.deltaTime);
 
         if (Input.GetButtonDown("Jump") && controller.isGrounded)
+        {
             velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
+        }
     }
 }
 

@@ -9,10 +9,9 @@ public class DialogueManager : MonoBehaviour
     public class DialogueLine
     {
         public string speakerName;
-
         public Sprite portrait;
 
-        [TextArea(3,5)]
+        [TextArea(3, 5)]
         public string dialogue;
     }
 
@@ -22,64 +21,65 @@ public class DialogueManager : MonoBehaviour
     public TMP_Text nameText;
     public TMP_Text dialogueText;
 
-    public bool autoStartDialogue = true;
-
     [Header("Dialogue")]
     public DialogueLine[] dialogueLines;
 
+    [Header("Settings")]
+    public bool autoStartDialogue = true;
     public float typingSpeed = 0.03f;
+
+    // 给其他脚本读取（Movement）
+    public bool IsDialogueActive { get; private set; } = false;
 
     private int currentIndex = 0;
     private bool isTyping = false;
     private Coroutine typingCoroutine;
 
-  void Start()
+    void Start()
     {
-    if (autoStartDialogue)
-    {
-        dialoguePanel.SetActive(true);
-        currentIndex = 0;
-        ShowLine();
-    }
-    else
-    {
-        dialoguePanel.SetActive(false);
-    }
+        if (autoStartDialogue)
+        {
+            IsDialogueActive = true;
+
+            dialoguePanel.SetActive(true);
+            currentIndex = 0;
+            ShowLine();
+        }
+        else
+        {
+            dialoguePanel.SetActive(false);
+        }
     }
 
-    //void Update()
-    //{
-        //if (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0))
-        //{
-          //  if (isTyping)
-          //  {
-         //       FinishTyping();
-         //   }
-         //   else
-            //{
-          //      NextLine();
-            //}
-        //}
-        void Update()
-{
-    if (Input.GetKeyDown(KeyCode.Space))
+    void Update()
     {
-        if (isTyping)
-            FinishTyping();
-        else
-            NextLine();
+        // 没有開啟對話就不要處理輸入
+        if (!IsDialogueActive)
+            return;
+
+        if (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0))
+        {
+            if (isTyping)
+            {
+                FinishTyping();
+            }
+            else
+            {
+                NextLine();
+            }
+        }
     }
-}
-   // }
 
     public void StartDialogue(DialogueLine[] newDialogue)
     {
-    dialogueLines = newDialogue;
-    currentIndex = 0;
+        IsDialogueActive = true;
 
-    dialoguePanel.SetActive(true);
+        dialogueLines = newDialogue;
+        currentIndex = 0;
 
-    ShowLine();
+        dialoguePanel.SetActive(true);
+
+        ShowLine();
     }
 
     void ShowLine()
@@ -101,7 +101,7 @@ public class DialogueManager : MonoBehaviour
 
         dialogueText.text = "";
 
-        foreach(char c in text)
+        foreach (char c in text)
         {
             dialogueText.text += c;
             yield return new WaitForSeconds(typingSpeed);
@@ -112,10 +112,10 @@ public class DialogueManager : MonoBehaviour
 
     void FinishTyping()
     {
-        StopCoroutine(typingCoroutine);
+        if (typingCoroutine != null)
+            StopCoroutine(typingCoroutine);
 
         dialogueText.text = dialogueLines[currentIndex].dialogue;
-
         isTyping = false;
     }
 
@@ -123,9 +123,12 @@ public class DialogueManager : MonoBehaviour
     {
         currentIndex++;
 
-        if(currentIndex >= dialogueLines.Length)
+        if (currentIndex >= dialogueLines.Length)
         {
             dialoguePanel.SetActive(false);
+
+            IsDialogueActive = false;
+
             currentIndex = 0;
             return;
         }
