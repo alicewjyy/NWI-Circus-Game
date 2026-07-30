@@ -405,14 +405,14 @@ RectTransform:
   m_GameObject: {fileID: 132477413}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 402.998}
-  m_LocalScale: {x: 2.5, y: 2.5, z: 1}
+  m_LocalScale: {x: 5, y: 4, z: 4}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1692475963}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -291.6, y: 44.3}
+  m_AnchoredPosition: {x: -375.9, y: -52.8}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &132477415
@@ -435,7 +435,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: e006c5f4a006ebe4988ba803da97e44f, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 631727b12b44fdf479bda1099e90f99d, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2194,19 +2194,19 @@ MonoBehaviour:
   dialogueText: {fileID: 277741176}
   dialogueLines:
   - speakerName: clown
-    portrait: {fileID: 21300000, guid: e006c5f4a006ebe4988ba803da97e44f, type: 3}
+    portrait: {fileID: 21300000, guid: 631727b12b44fdf479bda1099e90f99d, type: 3}
     dialogue: 'Welcome back your majesty! '
   - speakerName: clown
-    portrait: {fileID: 21300000, guid: e006c5f4a006ebe4988ba803da97e44f, type: 3}
+    portrait: {fileID: 21300000, guid: 631727b12b44fdf479bda1099e90f99d, type: 3}
     dialogue: We have a lot of audience members today.
   - speakerName: clown
-    portrait: {fileID: 21300000, guid: e006c5f4a006ebe4988ba803da97e44f, type: 3}
+    portrait: {fileID: 21300000, guid: 631727b12b44fdf479bda1099e90f99d, type: 3}
     dialogue: 'They''re all seated in  the show room. '
   - speakerName: clown
-    portrait: {fileID: 21300000, guid: e006c5f4a006ebe4988ba803da97e44f, type: 3}
+    portrait: {fileID: 21300000, guid: 631727b12b44fdf479bda1099e90f99d, type: 3}
     dialogue: 'Let''s go find our first member. '
   - speakerName: clown
-    portrait: {fileID: 21300000, guid: e006c5f4a006ebe4988ba803da97e44f, type: 3}
+    portrait: {fileID: 21300000, guid: 631727b12b44fdf479bda1099e90f99d, type: 3}
     dialogue: Look around for any clues!
   autoStartDialogue: 1
   typingSpeed: 0.03
@@ -2352,8 +2352,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 3.9777849, y: 7.8490353, z: 3.6048353}
-  m_Center: {x: 0.000001429824, y: 3.0015335, z: 0.30241737}
+  m_Size: {x: 10.245967, y: 7.8490353, z: 7.5845027}
+  m_Center: {x: -0.98894787, y: 3.0015335, z: 0.29443765}
 --- !u!114 &869387280
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2369,8 +2369,8 @@ MonoBehaviour:
   dialogueManager: {fileID: 827946853}
   dialogue:
   - speakerName: Audience 2
-    portrait: {fileID: 0}
-    dialogue: Sorry! Wrong Person!
+    portrait: {fileID: 21300000, guid: 79dca8ee6a769ef47ac695cee4319ebd, type: 3}
+    dialogue: Have you look at the newspaper today?
   talkPrompt: {fileID: 1646275263}
 --- !u!1001 &869774813
 PrefabInstance:
@@ -3162,8 +3162,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 8.233281, y: 7.45043, z: 5.696584}
-  m_Center: {x: -0.19025087, y: 3.7256784, z: 1.3482927}
+  m_Size: {x: 10.225565, y: 7.45043, z: 6.6797915}
+  m_Center: {x: -0.24936405, y: 3.7256784, z: 1.8398962}
 --- !u!114 &1241267437
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3179,8 +3179,10 @@ MonoBehaviour:
   dialogueManager: {fileID: 827946853}
   dialogue:
   - speakerName: Audience 2
-    portrait: {fileID: 0}
-    dialogue: Sorry! Wrong Person!
+    portrait: {fileID: 21300000, guid: 79dca8ee6a769ef47ac695cee4319ebd, type: 3}
+    dialogue: 'That was such a good show!
+
+'
   talkPrompt: {fileID: 1646275263}
 --- !u!1 &1249386576 stripped
 GameObject:
@@ -4542,8 +4544,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 8.233281, y: 7.45043, z: 5.696584}
-  m_Center: {x: -0.19025087, y: 3.7256784, z: 1.3482927}
+  m_Size: {x: 10.771931, y: 7.45043, z: 7.905945}
+  m_Center: {x: -0.005725414, y: 3.7256784, z: 2.4529762}
 --- !u!114 &1836293511
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4559,8 +4561,8 @@ MonoBehaviour:
   dialogueManager: {fileID: 827946853}
   dialogue:
   - speakerName: Audience 1
-    portrait: {fileID: 0}
-    dialogue: Sorry! Wrong Person!
+    portrait: {fileID: 21300000, guid: 79dca8ee6a769ef47ac695cee4319ebd, type: 3}
+    dialogue: Good show isn't it?
   talkPrompt: {fileID: 1646275263}
 --- !u!1 &1921051584 stripped
 GameObject:
