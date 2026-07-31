@@ -67,5 +67,5 @@
         "*.sln": "*.csproj",
         "*.slnx": "*.csproj"
     },
-    "dotnet.defaultSolution": "NWI-Circus Game.slnx"
+    "dotnet.defaultSolution": "NWI-Circus-Game.slnx"
 }
