@@ -863,7 +863,8 @@ MonoBehaviour:
   - Every journey is one step closer to bringing a forgotten kingdom back together.
   characterSpeed: 0.04
   lineDelay: 1.5
-  fadeTime: 2
+  fadeTime: 1
+  fastMultiplier: 6
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

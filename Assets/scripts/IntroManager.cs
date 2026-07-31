@@ -17,7 +17,12 @@ public class IntroManager : MonoBehaviour
     public float lineDelay = 1.5f;
     public float fadeTime = 2f;
 
+    [Header("Click Speed Up")]
+    public float fastMultiplier = 8f;
+
     private bool isTyping = false;
+    private bool isAccelerating = false;
+    private bool skipCurrentLine = false;
 
     void Start()
     {
@@ -32,63 +37,79 @@ public class IntroManager : MonoBehaviour
         {
             yield return StartCoroutine(TypeLine(line));
 
-            yield return new WaitForSeconds(lineDelay);
+            
+            if (skipCurrentLine)
+            {
+                skipCurrentLine = false;
+                storyText.text = "";
+                continue;
+            }
 
+            yield return new WaitForSeconds(lineDelay);
             storyText.text = "";
         }
 
         yield return new WaitForSeconds(1f);
 
-        yield return StartCoroutine(FadeOut());
+yield return StartCoroutine(FadeToBlack());
 
-        SceneManager.LoadScene("Game");
+SceneManager.LoadScene("Game");
     }
 
     IEnumerator TypeLine(string line)
     {
         isTyping = true;
-
+        isAccelerating = false;
+        skipCurrentLine = false;
         storyText.text = "";
 
         foreach (char c in line)
         {
+            if (skipCurrentLine)
+            {
+                storyText.text = line;
+                break;
+            }
+
             storyText.text += c;
-            yield return new WaitForSeconds(characterSpeed);
+
+            float speed = isAccelerating
+                ? characterSpeed / fastMultiplier
+                : characterSpeed;
+
+            yield return new WaitForSeconds(speed);
         }
 
         isTyping = false;
     }
 
-    IEnumerator FadeOut()
+    IEnumerator FadeToBlack()
     {
-        float t = 0;
+    float t = 0f;
 
-        while (t < fadeTime)
-        {
-            t += Time.deltaTime;
-
-            blackScreen.alpha = 1 - t / fadeTime;
-
-            yield return null;
-        }
-
-        blackScreen.alpha = 0;
+    while (t < fadeTime)
+    {
+        t += Time.deltaTime;
+        blackScreen.alpha = t / fadeTime;
+        yield return null;
     }
 
+    blackScreen.alpha = 1f;
+    }
     void Update()
     {
-        if (Input.GetMouseButtonDown(0) && isTyping)
+        if (!Input.GetMouseButtonDown(0) || !isTyping)
+            return;
+
+        if (!isAccelerating)
         {
-            StopAllCoroutines();
-
-            StartCoroutine(PlayIntroSkipCurrent());
+           
+            isAccelerating = true;
         }
-    }
-
-    IEnumerator PlayIntroSkipCurrent()
-    {
-        isTyping = false;
-
-        yield return null;
+        else
+        {
+        
+            skipCurrentLine = true;
+        }
     }
 }
