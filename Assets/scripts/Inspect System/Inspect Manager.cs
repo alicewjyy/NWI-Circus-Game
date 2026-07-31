@@ -203,3 +203,4 @@ private void ReenableSafely()
         return inspecting;
     }
 }
+
