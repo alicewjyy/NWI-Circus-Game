@@ -7,6 +7,11 @@ public class ReturnToMenu : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.M))
         {
+            // Unlock and show the mouse
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+
+            // Return to menu
             SceneManager.LoadScene("Menu");
         }
     }
